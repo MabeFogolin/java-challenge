@@ -45,13 +45,13 @@ https://www.youtube.com/watch?v=4L5RpHhTqTg
 <p align="left">Acesse a pasta N.I.B via terminal e, use o seguinte comando:
 
 ```bash
-mvn clean package
+docker-compose up --build
 ```
 
 <p align="left">Após a mensagem de sucesso do build, digite os seguintes comandos via terminal:
 
 ```bash
-docker-compose up --build
+docker exec -it ollama ollama pull deepseek-coder
 ```
 
 <p align="left">Assim que finalizar a construção do container, acesse a seguinte url para visualizar aas informações da aplicação via Prometheus:
