@@ -3,6 +3,9 @@ package com.fiap.N.I.B.controller;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 @RestController
 public class AIController {
 
@@ -12,10 +15,15 @@ public class AIController {
         this.chatClient = chatClientBuilder.build();
     }
 
-    // POST com JSON no corpo da requisição
     @PostMapping("/deepseek-r1-query")
     public String chatWithDeepseek(@RequestBody QueryRequest request) {
-        String encodedQuery = request.getQuery().replace(" ", "%20");
+        String encodedQuery;
+        try {
+            encodedQuery = URLEncoder.encode(request.getQuery(), "US-ASCII");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException("Erro ao codificar a query para ASCII", e);
+        }
+
         return chatClient.prompt(encodedQuery).call().content().toString();
     }
 
