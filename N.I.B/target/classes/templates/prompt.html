@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat com DeepSeek</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 30px;
+        }
+        .chat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .response {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+<div class="chat-box">
+    <h2>Chat com IA</h2>
+    <form method="post" th:action="@{/prompt}">
+        <label for="query">Pergunta:</label>
+        <input type="text" id="query" name="query" placeholder="Digite sua pergunta..." required />
+        <button type="submit">Enviar</button>
+    </form>
+
+    <div th:if="${response}">
+        <h3>Resposta:</h3>
+        <div class="response" th:text="${response}"></div>
+    </div>
+</div>
+</body>
+</html>
