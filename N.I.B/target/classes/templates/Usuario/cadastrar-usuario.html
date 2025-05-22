@@ -182,10 +182,12 @@
                th:field="*{dataNascimentoUser}" required>
     </label>
     <label class="label">
-        <input type="text" class="input-bordas" placeholder="Plano do usuário"
-               th:field="*{planoUser}" required maxlength="30"
-               pattern="[A-Za-zÀ-ÿ0-9\s\-]{2,}"
-               title="Plano deve conter letras, números ou hífens.">
+        <select class="input-bordas" th:field="*{planoUser}" required title="Selecione o plano">
+            <option value="">Selecione o plano</option>
+            <option value="Básico">Básico</option>
+            <option value="Premium">Premium</option>
+            <option value="Executivo">Executivo</option>
+        </select>
     </label>
 
     <label class="label">
