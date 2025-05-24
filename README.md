@@ -27,7 +27,7 @@
 <h2 align="left"> 📹 Link do vídeo</h2>
 
 ```bash
-https://www.youtube.com/watch?v=4L5RpHhTqTg
+https://youtu.be/Ru4kCOUQZBg
 ```
 
 <h2 align="left"> 🏠 Relacionamentos: Visão banco</h2>
